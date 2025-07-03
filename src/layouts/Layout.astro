@@ -1,0 +1,92 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "We Do Not Come In Peace - A Science Fiction Novel by The Oumuamua Protocol" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Import global styles -->
+    <style>
+      @import "../styles/global.css";
+    </style>
+  </head>
+  <body>
+    <div id="stars-container" class="fixed inset-0 pointer-events-none z-0"></div>
+    <div id="alien-grid" class="fixed inset-0 pointer-events-none z-10 opacity-20"></div>
+    <main class="relative z-20">
+      <slot />
+    </main>
+    
+    <script>
+      // Initialize smooth scrolling
+      import Lenis from 'lenis';
+      
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        smoothWheel: true,
+      });
+      
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      
+      requestAnimationFrame(raf);
+      
+      // Add alien grid animation
+      const grid = document.getElementById('alien-grid');
+      if (grid) {
+        grid.style.backgroundImage = `
+          linear-gradient(rgba(0, 255, 127, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 255, 127, 0.03) 1px, transparent 1px)
+        `;
+        grid.style.backgroundSize = '50px 50px';
+        
+        // Animate grid
+        let offset = 0;
+        setInterval(() => {
+          offset += 0.5;
+          grid.style.backgroundPosition = `${offset}px ${offset}px`;
+        }, 50);
+      }
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+  
+  .font-space-mono {
+    font-family: 'Space Mono', monospace;
+  }
+  
+  code {
+    font-family: 'Space Mono', Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+      Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+</style>

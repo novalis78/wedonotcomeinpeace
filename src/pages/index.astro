@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SpaceParticles from '../components/SpaceParticles';
+import HeroSection from '../components/HeroSection';
+import ActSection from '../components/ActSection';
+import CharacterGallery from '../components/CharacterGallery';
+---
+
+<Layout title="We Do Not Come In Peace - The Oumuamua Protocol">
+  <!-- 3D Particle Background -->
+  <SpaceParticles client:load />
+  
+  <!-- Hero Section -->
+  <HeroSection client:load />
+  
+  <!-- Act I -->
+  <ActSection
+    client:visible
+    actNumber={1}
+    title="The Sentry"
+    subtitle="The Detection"
+    yearRange="2017-2019"
+    description="Our story begins when 'Oumuamua passes through our solar system. While astronomers debate its unusual properties, the object is actually an ancient AI probe conducting preliminary scans of human civilization. The sentry determines that humanity has reached 'technological adolescence' - dangerous enough to potentially threaten the galaxy's older civilizations, but not yet mature enough to join the galactic community."
+    keyPoints={[
+      "October 2017: 'Oumuamua detected by Pan-STARRS telescope in Hawaii",
+      "Unusual trajectory and acceleration baffle scientists worldwide",
+      "Dr. Elena Vasquez detects encoded signals hidden in electromagnetic emissions",
+      "First contact protocols activated at highest levels of government",
+      "The probe's assessment: humanity is approaching a critical threshold"
+    ]}
+    theme="detection"
+  />
+  
+  <!-- Act II -->
+  <ActSection
+    client:visible
+    actNumber={2}
+    title="The Assessment"
+    subtitle="The Test"
+    yearRange="2019-2023"
+    description="A second object deploys a sophisticated biological weapon - COVID-19 - designed to test humanity's response to existential threats. This isn't meant to destroy us, but to evaluate our technological adaptability, social cohesion, leadership capabilities, capacity for global cooperation, and scientific advancement under duress. By late 2022, our protagonists piece together the truth: the pandemic was an intelligence test, and humanity's response has been mixed."
+    keyPoints={[
+      "December 2019: The biological test begins in Wuhan",
+      "Global pandemic tests every aspect of human civilization",
+      "Rapid vaccine development showcases human scientific capability",
+      "Social fractures reveal humanity's persistent tribalism",
+      "The verdict: humanity is 'conditionally threatening'"
+    ]}
+    theme="assessment"
+  />
+  
+  <!-- Act III -->
+  <ActSection
+    client:visible
+    actNumber={3}
+    title="The Reckoning"
+    subtitle="The Mop-Up Crew"
+    yearRange="2024-2025"
+    description="The third object arrives - massive, obviously artificial, and taking position at the edge of our solar system. This is the enforcement arm. Humanity has 18 months to either achieve unprecedented global unity and pass a final test, or face systematic 'reset' - being knocked back to pre-industrial civilization. The final test requires dismantling all nuclear weapons, establishing unified world government, and proving we can prioritize long-term species survival."
+    keyPoints={[
+      "January 2024: The enforcement object appears near Neptune",
+      "Alien ultimatum delivered through all communication channels",
+      "World governments forced to choose between sovereignty and survival",
+      "Elena's team establishes two-way communication with the alien network",
+      "Humanity narrowly achieves unity in the face of extinction"
+    ]}
+    theme="reckoning"
+  />
+  
+  <!-- Character Gallery -->
+  <CharacterGallery client:visible />
+  
+  <!-- Footer/Call to Action -->
+  <section className="py-32 px-4 text-center relative overflow-hidden">
+    <div className="max-w-4xl mx-auto relative z-10">
+      <h2 className="font-orbitron font-black text-3xl md:text-5xl mb-6 glow-text-danger">
+        <span className="text-gradient-danger">The Assessment Continues</span>
+      </h2>
+      <p className="text-lg text-[rgb(var(--color-starlight)/0.8)] mb-8 leading-relaxed">
+        Humanity has been granted probationary status. The enforcement object has withdrawn, 
+        but monitoring continues. We're now aware we're not alone, but true galactic citizenship 
+        will require decades more growth. The question remains: will we evolve, or will we fail?
+      </p>
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <button className="holographic px-8 py-4 rounded-lg font-space-mono uppercase tracking-wider transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,127,0.5)]">
+          <span className="relative z-10">Pre-Order Now</span>
+        </button>
+        <button className="alien-border px-8 py-4 rounded-lg font-space-mono uppercase tracking-wider bg-[rgb(var(--color-deep-space)/0.8)] transition-all hover:bg-[rgb(var(--color-deep-space))] hover:shadow-[0_0_20px_rgba(0,229,255,0.3)]">
+          Join the Resistance
+        </button>
+      </div>
+    </div>
+    
+    <!-- Final warning -->
+    <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[rgb(var(--color-warning-red)/0.1)] to-transparent animate-pulse" />
+  </section>
+</Layout>

@@ -1,0 +1,325 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Alien/Cosmic Color Palette */
+    --color-cosmic-black: 5 5 8;
+    --color-deep-space: 10 12 20;
+    --color-alien-green: 0 255 127;
+    --color-plasma-cyan: 0 229 255;
+    --color-warning-red: 255 59 48;
+    --color-stellar-purple: 147 51 234;
+    --color-nebula-pink: 236 72 153;
+    --color-starlight: 248 250 252;
+    
+    /* Gradient stops for alien tech effects */
+    --gradient-alien: linear-gradient(135deg, rgb(var(--color-alien-green) / 0.2) 0%, rgb(var(--color-plasma-cyan) / 0.1) 100%);
+    --gradient-warning: linear-gradient(135deg, rgb(var(--color-warning-red) / 0.3) 0%, rgb(var(--color-nebula-pink) / 0.2) 100%);
+    --gradient-cosmic: radial-gradient(ellipse at center, rgb(var(--color-stellar-purple) / 0.1) 0%, transparent 70%);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-[rgb(var(--color-cosmic-black))] text-[rgb(var(--color-starlight))] antialiased;
+    background-image: 
+      radial-gradient(ellipse at top, rgb(var(--color-deep-space)), transparent 50%),
+      radial-gradient(ellipse at bottom, rgb(var(--color-stellar-purple) / 0.1), transparent 50%);
+    min-height: 100vh;
+  }
+
+  /* Custom scrollbar for alien tech feel */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-[rgb(var(--color-deep-space))];
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[rgb(var(--color-alien-green)/0.5)] rounded-full;
+    border: 2px solid rgb(var(--color-deep-space));
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-[rgb(var(--color-alien-green)/0.8)];
+  }
+
+  /* Selection colors */
+  ::selection {
+    @apply bg-[rgb(var(--color-plasma-cyan)/0.3)] text-[rgb(var(--color-starlight))];
+  }
+}
+
+@layer components {
+  /* Glowing text effect */
+  .glow-text {
+    text-shadow: 
+      0 0 10px rgb(var(--color-alien-green) / 0.8),
+      0 0 20px rgb(var(--color-alien-green) / 0.6),
+      0 0 30px rgb(var(--color-alien-green) / 0.4),
+      0 0 40px rgb(var(--color-alien-green) / 0.2);
+  }
+
+  .glow-text-danger {
+    text-shadow: 
+      0 0 10px rgb(var(--color-warning-red) / 0.8),
+      0 0 20px rgb(var(--color-warning-red) / 0.6),
+      0 0 30px rgb(var(--color-warning-red) / 0.4),
+      0 0 40px rgb(var(--color-warning-red) / 0.2);
+  }
+
+  /* Alien tech border */
+  .alien-border {
+    position: relative;
+    border: 1px solid rgb(var(--color-alien-green) / 0.3);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      padding: 1px;
+      border-radius: inherit;
+      background: linear-gradient(
+        45deg,
+        rgb(var(--color-alien-green)),
+        rgb(var(--color-plasma-cyan)),
+        rgb(var(--color-stellar-purple))
+      );
+      -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.5;
+    }
+  }
+
+  /* Holographic effect */
+  .holographic {
+    background: linear-gradient(
+      135deg,
+      rgb(var(--color-alien-green) / 0.1),
+      rgb(var(--color-plasma-cyan) / 0.1),
+      rgb(var(--color-stellar-purple) / 0.1)
+    );
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(var(--color-starlight) / 0.1);
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgb(var(--color-plasma-cyan) / 0.1) 50%,
+        transparent 70%
+      );
+      animation: holographic-sweep 3s linear infinite;
+    }
+  }
+
+  /* Scanner line effect */
+  .scanner-line {
+    position: relative;
+    overflow: hidden;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgb(var(--color-alien-green)),
+        transparent
+      );
+      animation: scan 2s linear infinite;
+    }
+  }
+
+  /* Pulse animation for warnings */
+  .pulse-danger {
+    animation: pulse-red 2s ease-in-out infinite;
+  }
+
+  /* Grid pattern overlay */
+  .grid-overlay {
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgb(var(--color-alien-green) / 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgb(var(--color-alien-green) / 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+  }
+}
+
+@layer utilities {
+  /* Text gradient utility */
+  .text-gradient {
+    @apply bg-gradient-to-r from-[rgb(var(--color-alien-green))] via-[rgb(var(--color-plasma-cyan))] to-[rgb(var(--color-stellar-purple))] bg-clip-text text-transparent;
+  }
+
+  .text-gradient-danger {
+    @apply bg-gradient-to-r from-[rgb(var(--color-warning-red))] via-[rgb(var(--color-nebula-pink))] to-[rgb(var(--color-stellar-purple))] bg-clip-text text-transparent;
+  }
+
+  /* Fade in animation */
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  /* Glitch effect */
+  .glitch {
+    position: relative;
+    
+    &::before,
+    &::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    &::before {
+      animation: glitch-1 0.5s infinite;
+      color: rgb(var(--color-alien-green));
+      z-index: -1;
+    }
+    
+    &::after {
+      animation: glitch-2 0.5s infinite;
+      color: rgb(var(--color-plasma-cyan));
+      z-index: -1;
+    }
+  }
+}
+
+/* Animations */
+@keyframes holographic-sweep {
+  0% {
+    transform: rotate(0deg) translateY(-100%);
+  }
+  100% {
+    transform: rotate(360deg) translateY(100%);
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes pulse-red {
+  0%, 100% {
+    box-shadow: 0 0 20px rgb(var(--color-warning-red) / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgb(var(--color-warning-red) / 0.8);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes glitch-1 {
+  0%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+  }
+  40% {
+    transform: translate(-1px, -1px);
+  }
+  60% {
+    transform: translate(1px, 1px);
+  }
+  80% {
+    transform: translate(1px, -1px);
+  }
+}
+
+@keyframes glitch-2 {
+  0%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(1px, -1px);
+  }
+  40% {
+    transform: translate(1px, 1px);
+  }
+  60% {
+    transform: translate(-1px, -1px);
+  }
+  80% {
+    transform: translate(-1px, 1px);
+  }
+}
+
+/* Custom font imports */
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+}
