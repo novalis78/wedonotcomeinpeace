@@ -11,9 +11,9 @@ interface Character {
 
 const characters: Character[] = [
   {
-    name: "Dr. Elena Vasquez",
+    name: "Dr. Tana Keppler",
     title: "Radio Astronomer",
-    description: "Radio astronomer at Arecibo who first detected anomalous signals from 'Oumuamua. Her groundbreaking discovery sets the entire story in motion.",
+    description: "Descendant of Johannes Kepler, she discovered 'Oumuamua with Robert Weryk at Pan-STARRS telescope, Hawaii. First to detect the anomalous signals hidden within its trajectory.",
     traits: ["Brilliant", "Determined", "Intuitive"],
     color: "alien-green"
   },
@@ -93,7 +93,7 @@ export default function CharacterGallery() {
                 <div className="mb-4 relative">
                   <div className={`w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-[rgb(var(--color-${character.color})/0.3)] to-[rgb(var(--color-${character.color})/0.1)] flex items-center justify-center alien-border`}>
                     <span className={`font-orbitron text-3xl font-bold text-[rgb(var(--color-${character.color}))]`}>
-                      {character.name.split(' ').map(n => n[0]).join('')}
+                      {character.name.split(' ').filter(n => n !== 'Dr.').map(n => n[0]).join('')}
                     </span>
                   </div>
                   <div className={`absolute -bottom-2 -right-2 w-6 h-6 rounded-full bg-[rgb(var(--color-${character.color}))] animate-pulse`} />
