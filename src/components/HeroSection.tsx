@@ -137,7 +137,7 @@ export default function HeroSection() {
         >
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a 
-              href="https://checkout.stripe.com/c/pay/plink_1QcHg3KNSqdQWdl3JBTiHGzN#fidkdWxOYHwnPyd1blppbHNgWjA0SE1ydHBQcm9yczJRMGxVaXdLRnJGXzxtNjVLZmBjNHJAXWMxTlJmNEpESjJzYVx8NGJqSTJmcjJAaE5EbmRNdkdRRz1BamJgPGpHcm1VQjEwTUpgNTVcMjw0b2A2THNyfycpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+              href="https://buy.stripe.com/6oU14n1Tfbjo5Jybo614403"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-block px-8 py-4 rounded-lg font-space-mono uppercase tracking-wider transition-all hover:scale-105 bg-[rgb(var(--color-alien-green))] text-[rgb(var(--color-cosmic-black))] font-bold shadow-[0_0_20px_rgba(0,255,127,0.4)] hover:shadow-[0_0_40px_rgba(0,255,127,0.8)] overflow-hidden"

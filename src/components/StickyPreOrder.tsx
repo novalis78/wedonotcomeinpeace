@@ -29,7 +29,7 @@ export default function StickyPreOrder() {
             className="fixed bottom-8 right-8 z-40"
           >
             <a
-              href="https://checkout.stripe.com/c/pay/plink_1QcHg3KNSqdQWdl3JBTiHGzN#fidkdWxOYHwnPyd1blppbHNgWjA0SE1ydHBQcm9yczJRMGxVaXdLRnJGXzxtNjVLZmBjNHJAXWMxTlJmNEpESjJzYVx8NGJqSTJmcjJAaE5EbmRNdkdRRz1BamJgPGpHcm1VQjEwTUpgNTVcMjw0b2A2THNyfycpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+              href="https://buy.stripe.com/6oU14n1Tfbjo5Jybo614403"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-block px-6 py-3 rounded-full font-space-mono uppercase tracking-wider transition-all hover:scale-105 bg-[rgb(var(--color-alien-green))] text-[rgb(var(--color-cosmic-black))] font-bold shadow-[0_0_30px_rgba(0,255,127,0.6)] hover:shadow-[0_0_50px_rgba(0,255,127,0.8)] overflow-hidden"
