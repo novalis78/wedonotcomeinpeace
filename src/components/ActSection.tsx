@@ -151,15 +151,12 @@ export default function ActSection({
                     narrator="Narrated by Carl Sagan (First few minutes)"
                     color="stellar-purple"
                   />
-                  <div className="bg-[rgb(var(--color-deep-space)/0.5)] rounded-lg p-4 flex items-center gap-4 opacity-50">
-                    <button className="w-12 h-12 rounded-full bg-[rgb(var(--color-nebula-pink)/0.3)] border border-[rgb(var(--color-nebula-pink)/0.5)] flex items-center justify-center cursor-not-allowed">
-                      <span className="text-sm">▶</span>
-                    </button>
-                    <div className="flex-1">
-                      <p className="font-space-mono text-[rgb(var(--color-starlight)/0.8)]">Act II Sample</p>
-                      <p className="text-xs text-[rgb(var(--color-starlight)/0.5)]">Coming Soon</p>
-                    </div>
-                  </div>
+                  <AudioPlayer
+                    src="/audio/chapter9.mp3"
+                    title="Act II, Chapter 9: The Assessment Begins"
+                    narrator="Narrated by AI Voice"
+                    color="nebula-pink"
+                  />
                   <div className="bg-[rgb(var(--color-deep-space)/0.5)] rounded-lg p-4 flex items-center gap-4 opacity-50">
                     <button className="w-12 h-12 rounded-full bg-[rgb(var(--color-plasma-cyan)/0.3)] border border-[rgb(var(--color-plasma-cyan)/0.5)] flex items-center justify-center cursor-not-allowed">
                       <span className="text-sm">▶</span>
