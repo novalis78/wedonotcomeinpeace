@@ -143,22 +143,28 @@ export default function ActSection({
                 <div className="space-y-4">
                   <AudioPlayer
                     src="/audio/chapter1.mp3"
-                    title="Chapter 1: The Detection"
-                    narrator="Narrated by Carl Sagan"
+                    title="Act I, Chapter 1: The Sentry"
+                    narrator="Narrated by Carl Sagan (First few minutes)"
                     color="stellar-purple"
                   />
-                  <AudioPlayer
-                    src="/audio/chapter2.mp3"
-                    title="Chapter 2: First Contact"
-                    narrator="Narrated by Morgan Freeman"
-                    color="nebula-pink"
-                  />
-                  <AudioPlayer
-                    src="/audio/chapter3.mp3"
-                    title="Chapter 3: The Signal"
-                    narrator="Narrated by James Earl Jones"
-                    color="plasma-cyan"
-                  />
+                  <div className="bg-[rgb(var(--color-deep-space)/0.5)] rounded-lg p-4 flex items-center gap-4 opacity-50">
+                    <button className="w-12 h-12 rounded-full bg-[rgb(var(--color-nebula-pink)/0.3)] border border-[rgb(var(--color-nebula-pink)/0.5)] flex items-center justify-center cursor-not-allowed">
+                      <span className="text-sm">▶</span>
+                    </button>
+                    <div className="flex-1">
+                      <p className="font-space-mono text-[rgb(var(--color-starlight)/0.8)]">Act II Sample</p>
+                      <p className="text-xs text-[rgb(var(--color-starlight)/0.5)]">Coming Soon</p>
+                    </div>
+                  </div>
+                  <div className="bg-[rgb(var(--color-deep-space)/0.5)] rounded-lg p-4 flex items-center gap-4 opacity-50">
+                    <button className="w-12 h-12 rounded-full bg-[rgb(var(--color-plasma-cyan)/0.3)] border border-[rgb(var(--color-plasma-cyan)/0.5)] flex items-center justify-center cursor-not-allowed">
+                      <span className="text-sm">▶</span>
+                    </button>
+                    <div className="flex-1">
+                      <p className="font-space-mono text-[rgb(var(--color-starlight)/0.8)]">Act III Sample</p>
+                      <p className="text-xs text-[rgb(var(--color-starlight)/0.5)]">Coming Soon</p>
+                    </div>
+                  </div>
                 </div>
                 <p className="text-xs text-[rgb(var(--color-starlight)/0.5)] mt-6 text-center">
                   Free audiobook preview • Full version available on all platforms
@@ -177,12 +183,12 @@ export default function ActSection({
                     <svg className="w-20 h-20 mx-auto mb-4 text-[rgb(var(--color-warning-red))]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
-                    <p className="font-space-mono text-lg mb-2 text-[rgb(var(--color-warning-red))]">First 3 Chapters</p>
+                    <p className="font-space-mono text-lg mb-2 text-[rgb(var(--color-warning-red))]">Act I Sample</p>
                     <p className="text-sm text-[rgb(var(--color-starlight)/0.7)] mb-4">
-                      Experience the beginning of humanity's assessment
+                      Read Chapter 1: The Sentry - The Detection
                     </p>
                     <p className="text-xs text-[rgb(var(--color-starlight)/0.5)]">
-                      PDF Format • 3 Full Chapters
+                      PDF Format • Complete First Chapter
                     </p>
                   </div>
                   <a 
