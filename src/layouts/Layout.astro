@@ -4,18 +4,77 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = "We Do Not Come In Peace - A Science Fiction Novel by The Oumuamua Protocol" } = Astro.props;
+const { 
+  title, 
+  description = "It's cold out there in the Dark Forest between the stars... An ancient AI network monitors the galaxy for signs of biological life. When humanity's signals trigger detection protocols, a three-phase process begins with lethal precision." 
+} = Astro.props;
+
+const siteUrl = "https://wedonotcomeinpeace.com";
+const imageUrl = `${siteUrl}/cover.png`;
+const author = "The Oumuamua Protocol";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
     <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content={author} />
+    <meta name="keywords" content="science fiction, sci-fi novel, alien invasion, first contact, oumuamua, interstellar object, dark forest theory, space thriller, cosmic horror, AI sentinels" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:site_name" content="We Do Not Come In Peace" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={siteUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={imageUrl} />
+    
+    <!-- Additional SEO -->
+    <link rel="canonical" href={siteUrl} />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="theme-color" content="#00ff7f" />
+    
+    <!-- Schema.org for Google -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "We Do Not Come In Peace: The Oumuamua Protocol",
+        "author": {
+          "@type": "Person",
+          "name": author
+        },
+        "description": description,
+        "genre": ["Science Fiction", "Thriller"],
+        "bookFormat": "EBook",
+        "image": imageUrl,
+        "url": siteUrl,
+        "potentialAction": {
+          "@type": "ReadAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": siteUrl
+          }
+        }
+      })}
+    </script>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
