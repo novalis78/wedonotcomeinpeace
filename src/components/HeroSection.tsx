@@ -51,6 +51,16 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Oumuamua background image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/M7aoEdrTFt5REZnawrHEfE-1200-80.jpg" 
+          alt="Oumuamua" 
+          className="w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[rgb(var(--color-cosmic-black))] via-[rgb(var(--color-cosmic-black)/0.7)] to-transparent" />
+      </div>
+      
       {/* Animated background gradient */}
       <div className="absolute inset-0 opacity-50">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[rgb(var(--color-alien-green)/0.1)] to-transparent animate-pulse" />
@@ -85,12 +95,12 @@ export default function HeroSection() {
             className="font-orbitron font-black text-5xl md:text-7xl lg:text-8xl mb-6 relative"
             variants={titleVariants}
           >
-            <span className="block glitch" data-text="WE DO NOT">
-              <span className="text-gradient">WE DO NOT</span>
-            </span>
-            <span className="block mt-2 glitch" data-text="COME IN PEACE">
-              <span className="text-gradient-danger">COME IN PEACE</span>
-            </span>
+            <div className="block relative">
+              <span className="glitch text-gradient" data-text="WE DO NOT">WE DO NOT</span>
+            </div>
+            <div className="block mt-2 relative">
+              <span className="glitch text-gradient-danger" data-text="COME IN PEACE">COME IN PEACE</span>
+            </div>
           </motion.h1>
 
           {/* Subtitle */}

@@ -8,7 +8,6 @@ interface ActSectionProps {
   subtitle: string;
   yearRange: string;
   description: string;
-  keyPoints: string[];
   theme: 'detection' | 'assessment' | 'reckoning';
 }
 
@@ -18,7 +17,6 @@ export default function ActSection({
   subtitle, 
   yearRange, 
   description, 
-  keyPoints,
   theme 
 }: ActSectionProps) {
   const ref = useRef(null);
@@ -45,7 +43,7 @@ export default function ActSection({
   const colors = themeColors[theme];
 
   return (
-    <section ref={ref} className="relative py-32 px-4 overflow-hidden">
+    <section ref={ref} className="relative py-24 px-4 overflow-hidden">
       {/* Background effect based on theme */}
       <div className="absolute inset-0 opacity-20">
         {theme === 'detection' && (
@@ -55,21 +53,28 @@ export default function ActSection({
           <div className="absolute inset-0 bg-gradient-radial from-[rgb(var(--color-stellar-purple)/0.2)] to-transparent" />
         )}
         {theme === 'reckoning' && (
-          <div className="absolute inset-0 bg-gradient-radial from-[rgb(var(--color-warning-red)/0.2)] to-transparent animate-pulse" />
+          <>
+            <div className="absolute inset-0 bg-gradient-radial from-[rgb(var(--color-warning-red)/0.2)] to-transparent animate-pulse" />
+            <img 
+              src="/sail.webp" 
+              alt="Alien spacecraft" 
+              className="absolute inset-0 w-full h-full object-cover opacity-10"
+            />
+          </>
         )}
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 1 }}
           className="mb-12"
         >
-          {/* Act number */}
-          <div className="flex items-center gap-4 mb-6">
-            <div className={`w-20 h-20 rounded-full alien-border flex items-center justify-center ${theme === 'reckoning' ? 'pulse-danger' : ''}`}>
-              <span className={`font-orbitron font-bold text-3xl text-[rgb(var(--color-${colors.primary}))]`}>
+          {/* Act header */}
+          <div className="flex items-center gap-4 mb-8">
+            <div className={`w-16 h-16 rounded-full alien-border flex items-center justify-center ${theme === 'reckoning' ? 'pulse-danger' : ''}`}>
+              <span className={`font-orbitron font-bold text-2xl text-[rgb(var(--color-${colors.primary}))]`}>
                 {actNumber}
               </span>
             </div>
@@ -84,99 +89,102 @@ export default function ActSection({
           </div>
 
           {/* Title and subtitle */}
-          <h2 className={`font-orbitron font-black text-4xl md:text-6xl mb-4 ${colors.glow}`}>
+          <h2 className={`font-orbitron font-black text-4xl md:text-5xl lg:text-6xl mb-4 ${colors.glow}`}>
             <span className={`text-gradient${theme === 'reckoning' ? '-danger' : ''}`}>
               {title}
             </span>
           </h2>
-          <h3 className={`font-space-mono text-xl md:text-2xl text-[rgb(var(--color-${colors.secondary}))]`}>
+          <h3 className={`font-space-mono text-xl md:text-2xl text-[rgb(var(--color-${colors.secondary}))] mb-8`}>
             {subtitle}
           </h3>
+          
+          {/* Description */}
+          <p className="text-lg text-[rgb(var(--color-starlight)/0.8)] leading-relaxed max-w-3xl">
+            {description}
+          </p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, delay: 0.3 }}
-          className="grid md:grid-cols-2 gap-12"
+          className="grid lg:grid-cols-3 gap-8"
         >
-          {/* Description */}
-          <div className="space-y-6">
-            <p className="text-lg text-[rgb(var(--color-starlight)/0.8)] leading-relaxed">
-              {description}
-            </p>
-            
-            {/* Visual element based on theme */}
-            <div className="relative h-64 holographic rounded-lg overflow-hidden">
-              {theme === 'detection' && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="w-32 h-32 border-2 border-[rgb(var(--color-alien-green)/0.5)] rounded-full"
-                  >
-                    <div className="absolute inset-2 border border-[rgb(var(--color-plasma-cyan)/0.5)] rounded-full" />
-                    <div className="absolute inset-4 border border-[rgb(var(--color-alien-green)/0.3)] rounded-full" />
-                  </motion.div>
+          {/* Book Cover */}
+          <div className="holographic rounded-lg p-6 text-center">
+            <h4 className="font-space-mono text-lg mb-4 text-[rgb(var(--color-starlight))]">
+              Get the Book
+            </h4>
+            <div className="mb-6">
+              <div className={`w-48 h-72 mx-auto bg-gradient-to-br from-[rgb(var(--color-${colors.primary})/0.2)] to-[rgb(var(--color-${colors.secondary})/0.2)] rounded-lg alien-border flex items-center justify-center`}>
+                <div className="text-center">
+                  <p className="font-orbitron text-xs uppercase tracking-wider mb-2 text-[rgb(var(--color-starlight)/0.6)]">Coming Soon</p>
+                  <p className={`font-space-mono text-2xl font-bold text-[rgb(var(--color-${colors.primary}))]`}>Book</p>
+                  <p className={`font-space-mono text-2xl font-bold text-[rgb(var(--color-${colors.primary}))]`}>Cover</p>
                 </div>
-              )}
-              {theme === 'assessment' && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-full h-full flex items-center justify-center">
-                    <motion.div
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="w-32 h-32"
-                    >
-                      <svg viewBox="0 0 100 100" className="w-full h-full">
-                        <motion.path
-                          d="M50,10 L70,30 L70,70 L50,90 L30,70 L30,30 Z"
-                          fill="none"
-                          stroke="rgb(147, 51, 234)"
-                          strokeWidth="2"
-                          initial={{ pathLength: 0 }}
-                          animate={{ pathLength: 1 }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        />
-                      </svg>
-                    </motion.div>
-                  </div>
-                </div>
-              )}
-              {theme === 'reckoning' && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.div
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="text-6xl text-[rgb(var(--color-warning-red))]"
-                  >
-                    ⚠
-                  </motion.div>
-                </div>
-              )}
+              </div>
             </div>
+            <button className={`w-full px-6 py-3 rounded-lg font-space-mono text-sm uppercase tracking-wider bg-[rgb(var(--color-${colors.primary})/0.2)] border border-[rgb(var(--color-${colors.primary})/0.5)] hover:bg-[rgb(var(--color-${colors.primary})/0.3)] transition-all`}>
+              Pre-Order Now
+            </button>
           </div>
 
-          {/* Key points */}
-          <div>
-            <h4 className="font-space-mono text-lg mb-6 text-[rgb(var(--color-starlight))]">
-              Key Events
+          {/* Audiobook Sample */}
+          <div className="holographic rounded-lg p-6 text-center">
+            <h4 className="font-space-mono text-lg mb-4 text-[rgb(var(--color-starlight))]">
+              Listen to Sample
             </h4>
-            <ul className="space-y-4">
-              {keyPoints.map((point, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
-                  className="flex items-start gap-3"
-                >
-                  <div className={`w-2 h-2 rounded-full bg-[rgb(var(--color-${colors.primary}))] mt-2 flex-shrink-0`} />
-                  <p className="text-[rgb(var(--color-starlight)/0.7)]">{point}</p>
-                </motion.li>
-              ))}
-            </ul>
+            <div className="mb-6">
+              <div className="space-y-3">
+                <div className="bg-[rgb(var(--color-deep-space)/0.5)] rounded-lg p-3 flex items-center gap-3">
+                  <button className={`w-10 h-10 rounded-full bg-[rgb(var(--color-${colors.primary})/0.3)] border border-[rgb(var(--color-${colors.primary})/0.5)] flex items-center justify-center hover:bg-[rgb(var(--color-${colors.primary})/0.5)] transition-all`}>
+                    <span className="text-xs">▶</span>
+                  </button>
+                  <div className="flex-1 text-left">
+                    <p className="text-sm font-space-mono text-[rgb(var(--color-starlight)/0.8)]">Chapter 1: {subtitle}</p>
+                    <p className="text-xs text-[rgb(var(--color-starlight)/0.5)]">12:34</p>
+                  </div>
+                </div>
+                <div className="bg-[rgb(var(--color-deep-space)/0.5)] rounded-lg p-3 flex items-center gap-3">
+                  <button className={`w-10 h-10 rounded-full bg-[rgb(var(--color-${colors.primary})/0.3)] border border-[rgb(var(--color-${colors.primary})/0.5)] flex items-center justify-center hover:bg-[rgb(var(--color-${colors.primary})/0.5)] transition-all`}>
+                    <span className="text-xs">▶</span>
+                  </button>
+                  <div className="flex-1 text-left">
+                    <p className="text-sm font-space-mono text-[rgb(var(--color-starlight)/0.8)]">Chapter 2: First Contact</p>
+                    <p className="text-xs text-[rgb(var(--color-starlight)/0.5)]">15:47</p>
+                  </div>
+                </div>
+                <div className="bg-[rgb(var(--color-deep-space)/0.5)] rounded-lg p-3 flex items-center gap-3">
+                  <button className={`w-10 h-10 rounded-full bg-[rgb(var(--color-${colors.primary})/0.3)] border border-[rgb(var(--color-${colors.primary})/0.5)] flex items-center justify-center hover:bg-[rgb(var(--color-${colors.primary})/0.5)] transition-all`}>
+                    <span className="text-xs">▶</span>
+                  </button>
+                  <div className="flex-1 text-left">
+                    <p className="text-sm font-space-mono text-[rgb(var(--color-starlight)/0.8)]">Chapter 3: The Signal</p>
+                    <p className="text-xs text-[rgb(var(--color-starlight)/0.5)]">18:22</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="text-xs text-[rgb(var(--color-starlight)/0.5)]">Free preview of the audiobook</p>
+          </div>
+
+          {/* Download Sample */}
+          <div className="holographic rounded-lg p-6 text-center">
+            <h4 className="font-space-mono text-lg mb-4 text-[rgb(var(--color-starlight))]">
+              Free Sample
+            </h4>
+            <div className="mb-6">
+              <div className={`p-8 rounded-lg bg-[rgb(var(--color-${colors.primary})/0.1)] border-2 border-dashed border-[rgb(var(--color-${colors.primary})/0.3)]`}>
+                <svg className={`w-16 h-16 mx-auto mb-4 text-[rgb(var(--color-${colors.primary}))]`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <p className="font-space-mono text-sm mb-2">Download First 3 Chapters</p>
+                <p className="text-xs text-[rgb(var(--color-starlight)/0.5)]">PDF • EPUB • MOBI</p>
+              </div>
+            </div>
+            <button className={`w-full px-6 py-3 rounded-lg font-space-mono text-sm uppercase tracking-wider bg-[rgb(var(--color-${colors.primary})/0.2)] border border-[rgb(var(--color-${colors.primary})/0.5)] hover:bg-[rgb(var(--color-${colors.primary})/0.3)] transition-all`}>
+              Download Free Sample
+            </button>
           </div>
         </motion.div>
       </div>

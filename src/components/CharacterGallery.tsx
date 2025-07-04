@@ -51,8 +51,14 @@ export default function CharacterGallery() {
   const [selectedCharacter, setSelectedCharacter] = useState<number | null>(null);
 
   return (
-    <section className="py-32 px-4 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-4 relative overflow-hidden bg-[rgb(var(--color-cosmic-black))]">
+      {/* Background decoration */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-[rgb(var(--color-stellar-purple)/0.1)] rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[rgb(var(--color-alien-green)/0.1)] rounded-full blur-3xl" />
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -82,11 +88,21 @@ export default function CharacterGallery() {
               onClick={() => setSelectedCharacter(selectedCharacter === index ? null : index)}
               className="cursor-pointer"
             >
-              <div className={`holographic rounded-lg p-6 h-full ${selectedCharacter === index ? 'ring-2 ring-[rgb(var(--color-' + character.color + '))]' : ''}`}>
+              <div className={`relative group holographic rounded-lg p-6 h-full transition-all duration-300 ${selectedCharacter === index ? 'ring-2 ring-[rgb(var(--color-' + character.color + '))] scale-105' : ''}`}>
+                {/* Character avatar placeholder */}
+                <div className="mb-4 relative">
+                  <div className={`w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-[rgb(var(--color-${character.color})/0.3)] to-[rgb(var(--color-${character.color})/0.1)] flex items-center justify-center alien-border`}>
+                    <span className={`font-orbitron text-3xl font-bold text-[rgb(var(--color-${character.color}))]`}>
+                      {character.name.split(' ').map(n => n[0]).join('')}
+                    </span>
+                  </div>
+                  <div className={`absolute -bottom-2 -right-2 w-6 h-6 rounded-full bg-[rgb(var(--color-${character.color}))] animate-pulse`} />
+                </div>
+                
                 {/* Character info */}
-                <div className="space-y-4">
+                <div className="space-y-4 text-center">
                   <div>
-                    <h3 className={`font-orbitron font-bold text-xl text-[rgb(var(--color-${character.color}))]`}>
+                    <h3 className={`font-orbitron font-bold text-xl text-[rgb(var(--color-${character.color}))] group-hover:glow-text transition-all`}>
                       {character.name}
                     </h3>
                     <p className="font-space-mono text-sm text-[rgb(var(--color-starlight)/0.6)]">
@@ -99,11 +115,11 @@ export default function CharacterGallery() {
                   </p>
 
                   {/* Traits */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 justify-center">
                     {character.traits.map((trait, traitIndex) => (
                       <span
                         key={traitIndex}
-                        className={`px-3 py-1 rounded-full text-xs font-space-mono border border-[rgb(var(--color-${character.color})/0.3)] text-[rgb(var(--color-${character.color}))]`}
+                        className={`px-3 py-1 rounded-full text-xs font-space-mono bg-[rgb(var(--color-${character.color})/0.1)] border border-[rgb(var(--color-${character.color})/0.3)] text-[rgb(var(--color-${character.color}))]`}
                       >
                         {trait}
                       </span>
@@ -111,9 +127,11 @@ export default function CharacterGallery() {
                   </div>
                 </div>
 
-                {/* Holographic effect overlay */}
-                <div className="absolute inset-0 pointer-events-none opacity-0 hover:opacity-100 transition-opacity">
-                  <div className={`absolute inset-0 bg-gradient-to-br from-[rgb(var(--color-${character.color})/0.1)] to-transparent rounded-lg`} />
+                {/* Holographic scan line effect on hover */}
+                <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute inset-0 overflow-hidden rounded-lg">
+                    <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[rgb(var(--color-${character.color}))] to-transparent group-hover:animate-scan`} />
+                  </div>
                 </div>
               </div>
             </motion.div>
