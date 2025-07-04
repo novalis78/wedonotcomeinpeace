@@ -112,8 +112,9 @@ export default function HeroSection() {
               THE OUMUAMUA PROTOCOL
             </p>
             <p className="text-[rgb(var(--color-starlight)/0.7)] text-base md:text-lg max-w-2xl mx-auto">
-              An ancient AI network monitors the galaxy. When humanity's signals trigger 
-              detection protocols, a three-phase assessment begins that will determine Earth's fate.
+              It's cold out there in the Dark Forest between the stars... An ancient AI network 
+              monitors the galaxy for signs of biological life. When humanity's signals trigger 
+              detection protocols, a three-phase process begins with lethal precision...
             </p>
           </motion.div>
         </motion.div>
