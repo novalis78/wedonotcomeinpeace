@@ -182,12 +182,16 @@ export default function ActSection({
                       Experience the beginning of humanity's assessment
                     </p>
                     <p className="text-xs text-[rgb(var(--color-starlight)/0.5)]">
-                      Available in PDF • EPUB • MOBI
+                      PDF Format • 3 Full Chapters
                     </p>
                   </div>
-                  <button className="w-full px-6 py-3 rounded-lg font-space-mono text-sm uppercase tracking-wider bg-[rgb(var(--color-warning-red)/0.2)] border border-[rgb(var(--color-warning-red)/0.5)] hover:bg-[rgb(var(--color-warning-red)/0.3)] transition-all hover:shadow-[0_0_20px_rgba(255,59,48,0.3)]">
+                  <a 
+                    href="/The_Oumuamua_Protocol_excerpt.pdf"
+                    download
+                    className="block w-full px-6 py-3 rounded-lg font-space-mono text-sm uppercase tracking-wider bg-[rgb(var(--color-warning-red)/0.2)] border border-[rgb(var(--color-warning-red)/0.5)] hover:bg-[rgb(var(--color-warning-red)/0.3)] transition-all hover:shadow-[0_0_20px_rgba(255,59,48,0.3)] text-center"
+                  >
                     Download Now
-                  </button>
+                  </a>
                   <p className="text-xs text-[rgb(var(--color-starlight)/0.5)] mt-3">
                     No email required • Instant download
                   </p>
