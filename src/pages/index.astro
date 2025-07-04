@@ -5,6 +5,7 @@ import HeroSection from '../components/HeroSection';
 import ActSection from '../components/ActSection';
 import TrajectorySection from '../components/TrajectorySection';
 import CharacterGallery from '../components/CharacterGallery';
+import BookPromotion from '../components/BookPromotion';
 ---
 
 <Layout title="We Do Not Come In Peace - The Oumuamua Protocol">
@@ -21,7 +22,7 @@ import CharacterGallery from '../components/CharacterGallery';
     title="The Sentry"
     subtitle="The Detection"
     yearRange="2017-2019"
-    description="Our story begins when 'Oumuamua passes through our solar system. While astronomers debate its unusual properties, the object is actually an ancient AI probe conducting preliminary scans of human civilization. The sentry determines that humanity has reached 'technological adolescence' - dangerous enough to potentially threaten the galaxy's older civilizations, but not yet mature enough to join the galactic community."
+    description="Our story begins when 'Oumuamua passes through our solar system. While astronomers debate its unusual properties, the object is actually an ancient sentry..."
     theme="detection"
   />
   
@@ -32,10 +33,10 @@ import CharacterGallery from '../components/CharacterGallery';
   <ActSection
     client:visible
     actNumber={2}
-    title="The Assessment"
+    title="The Cartographer"
     subtitle="The Test"
     yearRange="2019-2023"
-    description="A second object deploys a sophisticated biological weapon - COVID-19 - designed to test humanity's response to existential threats. This isn't meant to destroy us, but to evaluate our technological adaptability, social cohesion, leadership capabilities, capacity for global cooperation, and scientific advancement under duress. By late 2022, our protagonists piece together the truth: the pandemic was an intelligence test, and humanity's response has been mixed."
+    description="The arrival of the second interstellar object and the pandemic were not coincidental. Learn more about a first probing attack..."
     theme="assessment"
   />
   
@@ -43,59 +44,41 @@ import CharacterGallery from '../components/CharacterGallery';
   <ActSection
     client:visible
     actNumber={3}
-    title="The Reckoning"
+    title="A11pI3Z"
     subtitle="The Mop-Up Crew"
     yearRange="2024-2025"
-    description="The third object arrives - massive, obviously artificial, and taking position at the edge of our solar system. This is the enforcement arm. Humanity has 18 months to either achieve unprecedented global unity and pass a final test, or face systematic 'reset' - being knocked back to pre-industrial civilization. The final test requires dismantling all nuclear weapons, establishing unified world government, and proving we can prioritize long-term species survival."
+    description="The third object arrives - massive, obviously artificial, and taking position at the edge of our solar system. This is the enforcement arm. Humanity's days are numbered..."
     theme="reckoning"
   />
   
   <!-- Character Gallery -->
   <CharacterGallery client:visible />
   
+  <!-- Book Promotion Section -->
+  <BookPromotion client:visible />
+  
   <!-- Footer/Call to Action -->
-  <section className="py-24 px-4 text-center relative overflow-hidden bg-gradient-to-b from-[rgb(var(--color-cosmic-black))] to-[rgb(var(--color-deep-space))]">
+  <section className="py-16 px-4 text-center relative overflow-hidden bg-[rgb(var(--color-deep-space))]">
     <div className="max-w-4xl mx-auto relative z-10">
-      <div>
-        <h2 className="font-orbitron font-black text-3xl md:text-5xl mb-6 glow-text-danger">
-          <span className="text-gradient-danger">The Assessment Continues</span>
-        </h2>
-        <p className="text-lg text-[rgb(var(--color-starlight)/0.8)] mb-12 leading-relaxed">
-          Humanity has been granted probationary status. The enforcement object has withdrawn, 
-          but monitoring continues. We're now aware we're not alone, but true galactic citizenship 
-          will require decades more growth. The question remains: will we evolve, or will we fail?
-        </p>
-        
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <div className="holographic rounded-lg p-6">
-            <div className="text-3xl mb-3">📚</div>
-            <h3 className="font-space-mono text-sm uppercase mb-2 text-[rgb(var(--color-alien-green))]">Available Soon</h3>
-            <p className="text-xs text-[rgb(var(--color-starlight)/0.7)]">Hardcover • Paperback • eBook</p>
-          </div>
-          <div className="holographic rounded-lg p-6">
-            <div className="text-3xl mb-3">🎧</div>
-            <h3 className="font-space-mono text-sm uppercase mb-2 text-[rgb(var(--color-plasma-cyan))]">Audiobook</h3>
-            <p className="text-xs text-[rgb(var(--color-starlight)/0.7)]">Narrated by Award Winners</p>
-          </div>
-          <div className="holographic rounded-lg p-6">
-            <div className="text-3xl mb-3">🌍</div>
-            <h3 className="font-space-mono text-sm uppercase mb-2 text-[rgb(var(--color-stellar-purple))]">Join the Movement</h3>
-            <p className="text-xs text-[rgb(var(--color-starlight)/0.7)]">Be Part of Humanity's Story</p>
-          </div>
-        </div>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button className="holographic px-8 py-4 rounded-lg font-space-mono uppercase tracking-wider transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,127,0.5)]">
-            <span className="relative z-10">Pre-Order Now</span>
-          </button>
-          <button className="alien-border px-8 py-4 rounded-lg font-space-mono uppercase tracking-wider bg-[rgb(var(--color-deep-space)/0.8)] transition-all hover:bg-[rgb(var(--color-deep-space))] hover:shadow-[0_0_20px_rgba(0,229,255,0.3)]">
-            Stay Updated
-          </button>
-        </div>
+      <h2 className="font-orbitron font-black text-2xl md:text-4xl mb-4 glow-text-danger">
+        <span className="text-gradient-danger">The Assessment Continues</span>
+      </h2>
+      <p className="text-base text-[rgb(var(--color-starlight)/0.8)] mb-8 leading-relaxed max-w-2xl mx-auto">
+        Humanity has been granted probationary status. The enforcement object has withdrawn, 
+        but monitoring continues. Will we evolve, or will we fail?
+      </p>
+      
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <button className="holographic px-6 py-3 rounded-lg font-space-mono text-sm uppercase tracking-wider transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,127,0.5)]">
+          <span className="relative z-10">Newsletter</span>
+        </button>
+        <button className="alien-border px-6 py-3 rounded-lg font-space-mono text-sm uppercase tracking-wider bg-[rgb(var(--color-deep-space)/0.8)] transition-all hover:bg-[rgb(var(--color-deep-space))] hover:shadow-[0_0_20px_rgba(0,229,255,0.3)]">
+          Contact Author
+        </button>
       </div>
     </div>
     
     <!-- Final warning -->
-    <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[rgb(var(--color-warning-red)/0.1)] to-transparent animate-pulse" />
+    <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-[rgb(var(--color-warning-red)/0.1)] to-transparent animate-pulse" />
   </section>
 </Layout>
