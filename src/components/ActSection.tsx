@@ -169,6 +169,9 @@ export default function ActSection({
                 <p className="text-xs text-[rgb(var(--color-starlight)/0.5)] mt-6 text-center">
                   Free audiobook preview • Full version available on all platforms
                 </p>
+                <p className="text-xs text-[rgb(var(--color-starlight)/0.4)] mt-2 text-center">
+                  Audio powered by <a href="https://readmypdf.com/carl-sagan" target="_blank" rel="noopener" className="text-[rgb(var(--color-plasma-cyan)/0.6)] hover:text-[rgb(var(--color-plasma-cyan))] transition-colors">AI voice technology</a>
+                </p>
               </div>
             )}
 
@@ -200,6 +203,9 @@ export default function ActSection({
                   </a>
                   <p className="text-xs text-[rgb(var(--color-starlight)/0.5)] mt-3">
                     No email required • Instant download
+                  </p>
+                  <p className="text-xs text-[rgb(var(--color-starlight)/0.4)] mt-2">
+                    Need to hear this PDF? Try <a href="https://readmypdf.com" target="_blank" rel="noopener" className="text-[rgb(var(--color-warning-red)/0.6)] hover:text-[rgb(var(--color-warning-red))] transition-colors">ReadMyPDF</a>
                   </p>
                 </div>
               </div>
