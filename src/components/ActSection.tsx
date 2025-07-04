@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import AudioPlayer from './AudioPlayer';
+import EmailModal from './EmailModal';
 
 interface ActSectionProps {
   actNumber: number;
@@ -22,6 +23,7 @@ export default function ActSection({
 }: ActSectionProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const themeColors = {
     detection: {
@@ -45,7 +47,7 @@ export default function ActSection({
   const isReversed = actNumber === 2; // Middle section is reversed
 
   return (
-    <section ref={ref} className="relative py-32 px-4 overflow-hidden">
+    <section ref={ref} id={`act-${actNumber}`} className="relative py-32 px-4 overflow-hidden">
       {/* Background effect based on theme */}
       <div className="absolute inset-0 opacity-20">
         {theme === 'detection' && (
@@ -119,15 +121,17 @@ export default function ActSection({
             {actNumber === 1 && (
               <div className="holographic rounded-lg p-8 h-full flex items-center justify-center">
                 <div className="w-full max-w-sm mx-auto">
-                  <div className="w-full aspect-[2/3] bg-gradient-to-br from-[rgb(var(--color-alien-green)/0.2)] to-[rgb(var(--color-warning-red)/0.2)] rounded-lg alien-border flex items-center justify-center">
-                    <div className="text-center p-6">
-                      <p className="font-orbitron text-xs uppercase tracking-wider mb-4 text-[rgb(var(--color-starlight)/0.6)]">Coming Soon</p>
-                      <p className="font-orbitron text-3xl font-bold text-[rgb(var(--color-alien-green))] mb-2">WE DO NOT</p>
-                      <p className="font-orbitron text-3xl font-bold text-[rgb(var(--color-warning-red))]">COME IN PEACE</p>
-                      <p className="font-space-mono text-sm mt-4 text-[rgb(var(--color-plasma-cyan))]">The Oumuamua Protocol</p>
-                    </div>
+                  <div className="w-full aspect-[2/3] rounded-lg overflow-hidden alien-border">
+                    <img 
+                      src="/cover.png" 
+                      alt="We Do Not Come In Peace - Book Cover" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <button className="w-full mt-6 px-6 py-3 rounded-lg font-space-mono text-sm uppercase tracking-wider bg-[rgb(var(--color-alien-green)/0.2)] border border-[rgb(var(--color-alien-green)/0.5)] hover:bg-[rgb(var(--color-alien-green)/0.3)] transition-all">
+                  <button 
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-full mt-6 px-6 py-3 rounded-lg font-space-mono text-sm uppercase tracking-wider bg-[rgb(var(--color-alien-green)/0.2)] border border-[rgb(var(--color-alien-green)/0.5)] hover:bg-[rgb(var(--color-alien-green)/0.3)] transition-all"
+                  >
                     Pre-Order Now
                   </button>
                 </div>
@@ -218,6 +222,13 @@ export default function ActSection({
       <div className={`absolute top-0 ${isReversed ? 'left-0' : 'right-0'} w-64 h-64 opacity-10`}>
         <div className={`w-full h-full border border-[rgb(var(--color-${colors.primary})/0.3)] rotate-45`} />
       </div>
+      
+      {/* Email Modal */}
+      <EmailModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        type="preorder" 
+      />
     </section>
   );
 }

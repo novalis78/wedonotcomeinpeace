@@ -1,12 +1,21 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import EmailModal from './EmailModal';
 
 export default function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+  
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const titleVariants = {
     hidden: { 
@@ -127,11 +136,17 @@ export default function HeroSection() {
           className="space-y-6"
         >
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="holographic px-8 py-4 rounded-lg font-space-mono uppercase tracking-wider transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,127,0.5)]">
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="holographic px-8 py-4 rounded-lg font-space-mono uppercase tracking-wider transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,127,0.5)]"
+            >
               <span className="relative z-10">Begin Transmission</span>
             </button>
             
-            <button className="alien-border px-8 py-4 rounded-lg font-space-mono uppercase tracking-wider bg-[rgb(var(--color-deep-space)/0.8)] transition-all hover:bg-[rgb(var(--color-deep-space))] hover:shadow-[0_0_20px_rgba(0,229,255,0.3)]">
+            <button 
+              onClick={() => scrollToSection('act-1')}
+              className="alien-border px-8 py-4 rounded-lg font-space-mono uppercase tracking-wider bg-[rgb(var(--color-deep-space)/0.8)] transition-all hover:bg-[rgb(var(--color-deep-space))] hover:shadow-[0_0_20px_rgba(0,229,255,0.3)]"
+            >
               Learn More
             </button>
           </div>
@@ -155,6 +170,13 @@ export default function HeroSection() {
       
       {/* Grid overlay */}
       <div className="absolute inset-0 grid-overlay opacity-10 pointer-events-none" />
+      
+      {/* Email Modal */}
+      <EmailModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        type="preorder" 
+      />
     </section>
   );
 }

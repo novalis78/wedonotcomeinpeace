@@ -5,6 +5,7 @@ import HeroSection from '../components/HeroSection';
 import ActSection from '../components/ActSection';
 import TrajectorySection from '../components/TrajectorySection';
 import CharacterGallery from '../components/CharacterGallery';
+import Footer from '../components/Footer';
 ---
 
 <Layout title="We Do Not Come In Peace - The Oumuamua Protocol">
@@ -53,28 +54,6 @@ import CharacterGallery from '../components/CharacterGallery';
   <!-- Character Gallery -->
   <CharacterGallery client:visible />
   
-  <!-- Footer/Call to Action -->
-  <section className="py-16 px-4 text-center relative overflow-hidden bg-[rgb(var(--color-deep-space))]">
-    <div className="max-w-4xl mx-auto relative z-10">
-      <h2 className="font-orbitron font-black text-2xl md:text-4xl mb-4 glow-text-danger">
-        <span className="text-gradient-danger">The Assessment Continues</span>
-      </h2>
-      <p className="text-base text-[rgb(var(--color-starlight)/0.8)] mb-8 leading-relaxed max-w-2xl mx-auto">
-        Humanity has been granted probationary status. The enforcement object has withdrawn, 
-        but monitoring continues. Will we evolve, or will we fail?
-      </p>
-      
-      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <button className="holographic px-6 py-3 rounded-lg font-space-mono text-sm uppercase tracking-wider transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,127,0.5)]">
-          <span className="relative z-10">Newsletter</span>
-        </button>
-        <button className="alien-border px-6 py-3 rounded-lg font-space-mono text-sm uppercase tracking-wider bg-[rgb(var(--color-deep-space)/0.8)] transition-all hover:bg-[rgb(var(--color-deep-space))] hover:shadow-[0_0_20px_rgba(0,229,255,0.3)]">
-          Contact Author
-        </button>
-      </div>
-    </div>
-    
-    <!-- Final warning -->
-    <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-[rgb(var(--color-warning-red)/0.1)] to-transparent animate-pulse" />
-  </section>
+  <!-- Footer -->
+  <Footer client:load />
 </Layout>
