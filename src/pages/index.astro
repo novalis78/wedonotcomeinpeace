@@ -5,6 +5,9 @@ import HeroSection from '../components/HeroSection';
 import ActSection from '../components/ActSection';
 import TrajectorySection from '../components/TrajectorySection';
 import CharacterGallery from '../components/CharacterGallery';
+import TestimonialsSection from '../components/TestimonialsSection';
+import CountdownSection from '../components/CountdownSection';
+import StickyPreOrder from '../components/StickyPreOrder';
 import SocialShare from '../components/SocialShare';
 import Footer from '../components/Footer';
 ---
@@ -13,8 +16,14 @@ import Footer from '../components/Footer';
   <!-- 3D Particle Background -->
   <SpaceParticles client:load />
   
+  <!-- Sticky Pre-Order Button -->
+  <StickyPreOrder client:load />
+  
   <!-- Hero Section -->
   <HeroSection client:load />
+  
+  <!-- Countdown Section -->
+  <CountdownSection client:load />
   
   <!-- Act I -->
   <ActSection
@@ -29,6 +38,9 @@ import Footer from '../components/Footer';
   
   <!-- Trajectory Data Section -->
   <TrajectorySection client:visible />
+  
+  <!-- Testimonials Section -->
+  <TestimonialsSection client:visible />
   
   <!-- Act II -->
   <ActSection

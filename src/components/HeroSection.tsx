@@ -120,10 +120,12 @@ export default function HeroSection() {
             <p className="font-space-mono text-lg md:text-xl text-[rgb(var(--color-plasma-cyan))] glow-text">
               THE OUMUAMUA PROTOCOL
             </p>
-            <p className="text-[rgb(var(--color-starlight)/0.7)] text-base md:text-lg max-w-2xl mx-auto">
-              It's cold out there in the Dark Forest between the stars... An ancient AI network 
-              monitors the galaxy for signs of biological life. When humanity's signals trigger 
-              detection protocols, a three-phase process begins with lethal precision...
+            <p className="text-[rgb(var(--color-starlight)/0.7)] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+              It's cold out there in the Dark Forest between the stars...
+            </p>
+            <p className="text-[rgb(var(--color-starlight)/0.9)] text-lg md:text-xl max-w-3xl mx-auto font-medium mt-4">
+              <span className="text-[rgb(var(--color-warning-red))] font-bold">⚠ WARNING:</span> This book contains classified information about humanity's first contact. 
+              What you're about to discover will change everything you thought you knew about Oumuamua.
             </p>
           </motion.div>
         </motion.div>
@@ -138,16 +140,17 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="holographic px-8 py-4 rounded-lg font-space-mono uppercase tracking-wider transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,127,0.5)]"
+              className="group relative px-8 py-4 rounded-lg font-space-mono uppercase tracking-wider transition-all hover:scale-105 bg-[rgb(var(--color-alien-green))] text-[rgb(var(--color-cosmic-black))] font-bold shadow-[0_0_20px_rgba(0,255,127,0.4)] hover:shadow-[0_0_40px_rgba(0,255,127,0.8)] overflow-hidden"
             >
-              <span className="relative z-10">Begin Transmission</span>
+              <span className="relative z-10">Pre-Order Now</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 opacity-30" />
             </button>
             
             <button 
               onClick={() => scrollToSection('act-1')}
-              className="alien-border px-8 py-4 rounded-lg font-space-mono uppercase tracking-wider bg-[rgb(var(--color-deep-space)/0.8)] transition-all hover:bg-[rgb(var(--color-deep-space))] hover:shadow-[0_0_20px_rgba(0,229,255,0.3)]"
+              className="alien-border px-8 py-4 rounded-lg font-space-mono uppercase tracking-wider bg-[rgb(var(--color-deep-space)/0.8)] text-[rgb(var(--color-starlight))] transition-all hover:bg-[rgb(var(--color-deep-space))] hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] hover:border-[rgb(var(--color-plasma-cyan))]"
             >
-              Learn More
+              Discover The Truth
             </button>
           </div>
 

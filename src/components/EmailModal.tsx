@@ -36,6 +36,7 @@ export default function EmailModal({ isOpen, onClose, type }: EmailModalProps) {
         setStatus('error');
       }
     } catch (error) {
+      console.error('Error sending email:', error);
       setStatus('error');
     } finally {
       setIsLoading(false);
