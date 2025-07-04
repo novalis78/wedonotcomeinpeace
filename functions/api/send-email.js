@@ -16,6 +16,14 @@ export async function onRequestPost(context) {
   try {
     const { email, type, message } = await request.json();
     
+    // Validate required fields
+    if (!email || !type) {
+      return new Response(JSON.stringify({ error: 'Missing required fields' }), {
+        status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+    
     // Determine email content based on type
     const emailContent = type === 'preorder' 
       ? {
@@ -60,7 +68,7 @@ export async function onRequestPost(context) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'We Do Not Come In Peace <info@speakmypdf.com>',
+        from: 'We Do Not Come In Peace <onboarding@resend.dev>',
         to: ['novalis78@gmail.com'],
         subject: emailContent.subject,
         html: emailContent.html,
@@ -72,7 +80,7 @@ export async function onRequestPost(context) {
 
     if (!response.ok) {
       console.error('Resend API error:', data);
-      return new Response(JSON.stringify({ error: 'Failed to send email' }), {
+      return new Response(JSON.stringify({ error: data.message || 'Failed to send email', details: data }), {
         status: response.status,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
