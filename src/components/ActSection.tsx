@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import AudioPlayer from './AudioPlayer';
 
 interface ActSectionProps {
   actNumber: number;
@@ -140,33 +141,24 @@ export default function ActSection({
                   Listen to Sample Chapters
                 </h4>
                 <div className="space-y-4">
-                  <div className="bg-[rgb(var(--color-deep-space)/0.5)] rounded-lg p-4 flex items-center gap-4">
-                    <button className="w-12 h-12 rounded-full bg-[rgb(var(--color-stellar-purple)/0.3)] border border-[rgb(var(--color-stellar-purple)/0.5)] flex items-center justify-center hover:bg-[rgb(var(--color-stellar-purple)/0.5)] transition-all group">
-                      <span className="text-sm group-hover:scale-110 transition-transform">▶</span>
-                    </button>
-                    <div className="flex-1">
-                      <p className="font-space-mono text-[rgb(var(--color-starlight)/0.8)]">Chapter 1: The Detection</p>
-                      <p className="text-xs text-[rgb(var(--color-starlight)/0.5)]">12:34 • Narrated by Award Winners</p>
-                    </div>
-                  </div>
-                  <div className="bg-[rgb(var(--color-deep-space)/0.5)] rounded-lg p-4 flex items-center gap-4">
-                    <button className="w-12 h-12 rounded-full bg-[rgb(var(--color-nebula-pink)/0.3)] border border-[rgb(var(--color-nebula-pink)/0.5)] flex items-center justify-center hover:bg-[rgb(var(--color-nebula-pink)/0.5)] transition-all group">
-                      <span className="text-sm group-hover:scale-110 transition-transform">▶</span>
-                    </button>
-                    <div className="flex-1">
-                      <p className="font-space-mono text-[rgb(var(--color-starlight)/0.8)]">Chapter 2: First Contact</p>
-                      <p className="text-xs text-[rgb(var(--color-starlight)/0.5)]">15:47 • Experience the tension</p>
-                    </div>
-                  </div>
-                  <div className="bg-[rgb(var(--color-deep-space)/0.5)] rounded-lg p-4 flex items-center gap-4">
-                    <button className="w-12 h-12 rounded-full bg-[rgb(var(--color-plasma-cyan)/0.3)] border border-[rgb(var(--color-plasma-cyan)/0.5)] flex items-center justify-center hover:bg-[rgb(var(--color-plasma-cyan)/0.5)] transition-all group">
-                      <span className="text-sm group-hover:scale-110 transition-transform">▶</span>
-                    </button>
-                    <div className="flex-1">
-                      <p className="font-space-mono text-[rgb(var(--color-starlight)/0.8)]">Chapter 3: The Signal</p>
-                      <p className="text-xs text-[rgb(var(--color-starlight)/0.5)]">18:22 • Uncover the truth</p>
-                    </div>
-                  </div>
+                  <AudioPlayer
+                    src="/audio/chapter1.mp3"
+                    title="Chapter 1: The Detection"
+                    narrator="Narrated by Carl Sagan"
+                    color="stellar-purple"
+                  />
+                  <AudioPlayer
+                    src="/audio/chapter2.mp3"
+                    title="Chapter 2: First Contact"
+                    narrator="Narrated by Morgan Freeman"
+                    color="nebula-pink"
+                  />
+                  <AudioPlayer
+                    src="/audio/chapter3.mp3"
+                    title="Chapter 3: The Signal"
+                    narrator="Narrated by James Earl Jones"
+                    color="plasma-cyan"
+                  />
                 </div>
                 <p className="text-xs text-[rgb(var(--color-starlight)/0.5)] mt-6 text-center">
                   Free audiobook preview • Full version available on all platforms
