@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import EmailModal from './EmailModal';
 
 export default function StickyPreOrder() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,9 +28,11 @@ export default function StickyPreOrder() {
             transition={{ duration: 0.3 }}
             className="fixed bottom-8 right-8 z-40"
           >
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="group relative px-6 py-3 rounded-full font-space-mono uppercase tracking-wider transition-all hover:scale-105 bg-[rgb(var(--color-alien-green))] text-[rgb(var(--color-cosmic-black))] font-bold shadow-[0_0_30px_rgba(0,255,127,0.6)] hover:shadow-[0_0_50px_rgba(0,255,127,0.8)] overflow-hidden"
+            <a
+              href="https://checkout.stripe.com/c/pay/plink_1QcHg3KNSqdQWdl3JBTiHGzN#fidkdWxOYHwnPyd1blppbHNgWjA0SE1ydHBQcm9yczJRMGxVaXdLRnJGXzxtNjVLZmBjNHJAXWMxTlJmNEpESjJzYVx8NGJqSTJmcjJAaE5EbmRNdkdRRz1BamJgPGpHcm1VQjEwTUpgNTVcMjw0b2A2THNyfycpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-block px-6 py-3 rounded-full font-space-mono uppercase tracking-wider transition-all hover:scale-105 bg-[rgb(var(--color-alien-green))] text-[rgb(var(--color-cosmic-black))] font-bold shadow-[0_0_30px_rgba(0,255,127,0.6)] hover:shadow-[0_0_50px_rgba(0,255,127,0.8)] overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-2">
                 <span className="animate-pulse">●</span>
@@ -42,16 +42,10 @@ export default function StickyPreOrder() {
               
               {/* Pulsing ring effect */}
               <div className="absolute -inset-2 rounded-full border-2 border-[rgb(var(--color-alien-green)/0.5)] animate-ping" />
-            </button>
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
-      
-      <EmailModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        type="preorder" 
-      />
     </>
   );
 }

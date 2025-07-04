@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import AudioPlayer from './AudioPlayer';
-import EmailModal from './EmailModal';
 
 interface ActSectionProps {
   actNumber: number;
@@ -23,7 +22,6 @@ export default function ActSection({
 }: ActSectionProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const themeColors = {
     detection: {
@@ -128,12 +126,14 @@ export default function ActSection({
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <button 
-                    onClick={() => setIsModalOpen(true)}
-                    className="w-full mt-6 px-6 py-3 rounded-lg font-space-mono text-sm uppercase tracking-wider bg-[rgb(var(--color-alien-green)/0.2)] border border-[rgb(var(--color-alien-green)/0.5)] hover:bg-[rgb(var(--color-alien-green)/0.3)] transition-all"
+                  <a 
+                    href="https://checkout.stripe.com/c/pay/plink_1QcHg3KNSqdQWdl3JBTiHGzN#fidkdWxOYHwnPyd1blppbHNgWjA0SE1ydHBQcm9yczJRMGxVaXdLRnJGXzxtNjVLZmBjNHJAXWMxTlJmNEpESjJzYVx8NGJqSTJmcjJAaE5EbmRNdkdRRz1BamJgPGpHcm1VQjEwTUpgNTVcMjw0b2A2THNyfycpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full mt-6 px-6 py-3 rounded-lg font-space-mono text-sm uppercase tracking-wider bg-[rgb(var(--color-alien-green)/0.2)] border border-[rgb(var(--color-alien-green)/0.5)] hover:bg-[rgb(var(--color-alien-green)/0.3)] transition-all text-center"
                   >
                     Pre-Order Now
-                  </button>
+                  </a>
                 </div>
               </div>
             )}
@@ -222,13 +222,6 @@ export default function ActSection({
       <div className={`absolute top-0 ${isReversed ? 'left-0' : 'right-0'} w-64 h-64 opacity-10`}>
         <div className={`w-full h-full border border-[rgb(var(--color-${colors.primary})/0.3)] rotate-45`} />
       </div>
-      
-      {/* Email Modal */}
-      <EmailModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        type="preorder" 
-      />
     </section>
   );
 }

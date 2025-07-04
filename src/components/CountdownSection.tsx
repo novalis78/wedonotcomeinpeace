@@ -104,7 +104,7 @@ export default function CountdownSection() {
             >
               <span className="text-[rgb(var(--color-alien-green))]">✓</span>
               <span className="text-[rgb(var(--color-starlight)/0.8)]">
-                Exclusive bonus chapter: "The Signal" (Pre-order only)
+                Immediate download link upon purchase
               </span>
             </motion.div>
             <motion.div
@@ -116,7 +116,7 @@ export default function CountdownSection() {
             >
               <span className="text-[rgb(var(--color-alien-green))]">✓</span>
               <span className="text-[rgb(var(--color-starlight)/0.8)]">
-                Author's notes on the real science behind the story
+                Full audiobook version included
               </span>
             </motion.div>
             <motion.div
@@ -128,13 +128,13 @@ export default function CountdownSection() {
             >
               <span className="text-[rgb(var(--color-alien-green))]">✓</span>
               <span className="text-[rgb(var(--color-starlight)/0.8)]">
-                Early access to Act IV when it releases
+                Be among the first to discover the truth
               </span>
             </motion.div>
           </div>
 
-          <p className="text-[rgb(var(--color-starlight)/0.6)] text-sm font-space-mono">
-            Regular price: $14.99 • Pre-order price: $9.99
+          <p className="text-[rgb(var(--color-starlight)/0.9)] text-lg font-space-mono font-bold">
+            Pre-order price: <span className="text-[rgb(var(--color-alien-green))] text-2xl">$19.99</span>
           </p>
         </motion.div>
       </div>

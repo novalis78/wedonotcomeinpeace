@@ -1,10 +1,8 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import EmailModal from './EmailModal';
 
 export default function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   
   useEffect(() => {
     setIsLoaded(true);
@@ -138,13 +136,15 @@ export default function HeroSection() {
           className="space-y-6"
         >
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button 
-              onClick={() => setIsModalOpen(true)}
-              className="group relative px-8 py-4 rounded-lg font-space-mono uppercase tracking-wider transition-all hover:scale-105 bg-[rgb(var(--color-alien-green))] text-[rgb(var(--color-cosmic-black))] font-bold shadow-[0_0_20px_rgba(0,255,127,0.4)] hover:shadow-[0_0_40px_rgba(0,255,127,0.8)] overflow-hidden"
+            <a 
+              href="https://checkout.stripe.com/c/pay/plink_1QcHg3KNSqdQWdl3JBTiHGzN#fidkdWxOYHwnPyd1blppbHNgWjA0SE1ydHBQcm9yczJRMGxVaXdLRnJGXzxtNjVLZmBjNHJAXWMxTlJmNEpESjJzYVx8NGJqSTJmcjJAaE5EbmRNdkdRRz1BamJgPGpHcm1VQjEwTUpgNTVcMjw0b2A2THNyfycpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-block px-8 py-4 rounded-lg font-space-mono uppercase tracking-wider transition-all hover:scale-105 bg-[rgb(var(--color-alien-green))] text-[rgb(var(--color-cosmic-black))] font-bold shadow-[0_0_20px_rgba(0,255,127,0.4)] hover:shadow-[0_0_40px_rgba(0,255,127,0.8)] overflow-hidden"
             >
               <span className="relative z-10">Pre-Order Now</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 opacity-30" />
-            </button>
+            </a>
             
             <button 
               onClick={() => scrollToSection('act-1')}
@@ -173,13 +173,6 @@ export default function HeroSection() {
       
       {/* Grid overlay */}
       <div className="absolute inset-0 grid-overlay opacity-10 pointer-events-none" />
-      
-      {/* Email Modal */}
-      <EmailModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        type="preorder" 
-      />
     </section>
   );
 }
