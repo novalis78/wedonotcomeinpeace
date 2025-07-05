@@ -10,6 +10,15 @@ interface AudioPlayerProps {
 export default function AudioPlayer({ src, title, narrator, color }: AudioPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  
+  // Map color names to full class names to ensure Tailwind includes them
+  const colorClasses = {
+    'alien-green': 'bg-[rgb(var(--color-alien-green)/0.3)] border-[rgb(var(--color-alien-green)/0.5)] hover:bg-[rgb(var(--color-alien-green)/0.5)]',
+    'plasma-cyan': 'bg-[rgb(var(--color-plasma-cyan)/0.3)] border-[rgb(var(--color-plasma-cyan)/0.5)] hover:bg-[rgb(var(--color-plasma-cyan)/0.5)]',
+    'stellar-purple': 'bg-[rgb(var(--color-stellar-purple)/0.3)] border-[rgb(var(--color-stellar-purple)/0.5)] hover:bg-[rgb(var(--color-stellar-purple)/0.5)]',
+    'nebula-pink': 'bg-[rgb(var(--color-nebula-pink)/0.3)] border-[rgb(var(--color-nebula-pink)/0.5)] hover:bg-[rgb(var(--color-nebula-pink)/0.5)]',
+    'warning-red': 'bg-[rgb(var(--color-warning-red)/0.3)] border-[rgb(var(--color-warning-red)/0.5)] hover:bg-[rgb(var(--color-warning-red)/0.5)]'
+  };
 
   const togglePlay = () => {
     if (audioRef.current) {
@@ -26,7 +35,7 @@ export default function AudioPlayer({ src, title, narrator, color }: AudioPlayer
     <div className="bg-[rgb(var(--color-deep-space)/0.5)] rounded-lg p-4">
       <div className="flex items-center gap-4">
         <button
-          className={`w-12 h-12 rounded-full bg-[rgb(var(--color-${color})/0.3)] border border-[rgb(var(--color-${color})/0.5)] flex items-center justify-center hover:bg-[rgb(var(--color-${color})/0.5)] transition-all group`}
+          className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all group ${colorClasses[color as keyof typeof colorClasses] || colorClasses['alien-green']}`}
           onClick={togglePlay}
         >
           <span className="text-sm group-hover:scale-110 transition-transform">
@@ -42,6 +51,10 @@ export default function AudioPlayer({ src, title, narrator, color }: AudioPlayer
         ref={audioRef}
         src={src}
         onEnded={() => setIsPlaying(false)}
+        onError={(e) => {
+          console.error(`Error loading audio: ${src}`, e);
+          setIsPlaying(false);
+        }}
         className="hidden"
       />
     </div>
