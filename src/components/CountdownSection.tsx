@@ -104,7 +104,7 @@ export default function CountdownSection() {
             >
               <span className="text-[rgb(var(--color-alien-green))]">✓</span>
               <span className="text-[rgb(var(--color-starlight)/0.8)]">
-                Immediate download link upon purchase
+                Companion ebook download available
               </span>
             </motion.div>
             <motion.div
@@ -117,18 +117,6 @@ export default function CountdownSection() {
               <span className="text-[rgb(var(--color-alien-green))]">✓</span>
               <span className="text-[rgb(var(--color-starlight)/0.8)]">
                 Full audiobook version included
-              </span>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="flex items-center justify-center gap-3"
-            >
-              <span className="text-[rgb(var(--color-alien-green))]">✓</span>
-              <span className="text-[rgb(var(--color-starlight)/0.8)]">
-                Be among the first to discover the truth
               </span>
             </motion.div>
           </div>
