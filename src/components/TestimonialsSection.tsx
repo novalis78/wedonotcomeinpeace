@@ -78,19 +78,9 @@ export default function TestimonialsSection() {
                 </div>
 
                 {/* Quote */}
-                <p className="text-[rgb(var(--color-starlight)/0.9)] text-lg leading-relaxed mb-6 relative z-10">
+                <p className="text-[rgb(var(--color-starlight)/0.9)] text-lg leading-relaxed relative z-10">
                   {testimonial.quote}
                 </p>
-
-                {/* Author */}
-                <div className="border-t border-[rgb(var(--color-starlight)/0.2)] pt-4">
-                  <p className="font-space-mono text-[rgb(var(--color-plasma-cyan))] font-bold">
-                    {testimonial.author}
-                  </p>
-                  <p className="text-[rgb(var(--color-starlight)/0.6)] text-sm">
-                    {testimonial.credential}
-                  </p>
-                </div>
               </div>
             </motion.div>
           ))}
