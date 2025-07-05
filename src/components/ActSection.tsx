@@ -142,7 +142,7 @@ export default function ActSection({
             {actNumber === 2 && (
               <div className="holographic rounded-lg p-6">
                 <h4 className="font-space-mono text-lg mb-6 text-[rgb(var(--color-starlight))] text-center">
-                  Listen to Sample Chapters
+                  Preview All Three Acts
                 </h4>
                 <div className="space-y-4">
                   <AudioPlayer
@@ -157,15 +157,12 @@ export default function ActSection({
                     narrator="Narrated by AI Voice"
                     color="nebula-pink"
                   />
-                  <div className="bg-[rgb(var(--color-deep-space)/0.5)] rounded-lg p-4 flex items-center gap-4 opacity-50">
-                    <button className="w-12 h-12 rounded-full bg-[rgb(var(--color-plasma-cyan)/0.3)] border border-[rgb(var(--color-plasma-cyan)/0.5)] flex items-center justify-center cursor-not-allowed">
-                      <span className="text-sm">▶</span>
-                    </button>
-                    <div className="flex-1">
-                      <p className="font-space-mono text-[rgb(var(--color-starlight)/0.8)]">Act III Sample</p>
-                      <p className="text-xs text-[rgb(var(--color-starlight)/0.5)]">Coming Soon</p>
-                    </div>
-                  </div>
+                  <AudioPlayer
+                    src="/audio/chapter18.mp3"
+                    title="Act III, Chapter 18: The Reckoning"
+                    narrator="Narrated by AI Voice"
+                    color="plasma-cyan"
+                  />
                 </div>
                 <p className="text-xs text-[rgb(var(--color-starlight)/0.5)] mt-6 text-center">
                   Free audiobook preview • Full version available on all platforms
